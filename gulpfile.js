@@ -20,5 +20,17 @@ gulp.task('govuk', function() {
   gulp.src(['node_modules/govuk_template_jinja/views/layouts/*']).pipe(gulp.dest('_gulp-test/lib/'))
   // gutil.log('govuk_template layout copied to lib');
 
+  // Move snippets to a test folder
+  gulp.src(['app/views/snippets/**/*']).pipe(gulp.dest('_gulp-test/app/views/snippets/'))
+  // gutil.log('snippets duplicated in test folder');
+
+})
+
+// Encode HTML snippets
+
+gulp.task('encode', function() {
+  return gulp.src('./_gulp-test/app/views/snippets/*')
+    .pipe(entities('encode'))
+    .pipe(gulp.dest('./_gulp-test/app/views/snippets/encoded/'))
 })
 
