@@ -31,6 +31,7 @@
     "gulp": "^3.9.1",
     "gulp-html-entities": "0.0.3",
     "gulp-sass": "^2.3.2",
+    "gulp-scss-lint": "^0.4.0",
     "gulp-util": "^3.0.7",
     "node-sass": "^3.2.0",
     "readdir": "0.0.6",

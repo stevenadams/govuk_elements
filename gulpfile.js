@@ -2,6 +2,7 @@ var gulp = require('gulp')
 var gutil = require('gulp-util')
 var del = require('del')
 var sass = require('gulp-sass')
+var scsslint = require('gulp-scss-lint')
 var entities = require('gulp-html-entities')
 
 // Create a govuk task to copy govuk dependencies to a govuk_modules folder
@@ -41,6 +42,14 @@ gulp.task('styles', function () {
       ]
     }).on('error', sass.logError))
     .pipe(gulp.dest('_gulp-test/public/stylesheets'))
+})
+
+gulp.task('styles-lint', function () {
+  return gulp.src('./public/sass/elements/**/*.scss')
+    .pipe(scsslint({
+      'bundleExec': true,
+      'config': '.scss-lint.yml'
+    }))
 })
 
 // Delete the _gulp-test directory (change this to /public/stylesheets once working)
