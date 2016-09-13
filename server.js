@@ -1,3 +1,5 @@
+'use strict'
+
 var path = require('path')
 var express = require('express')
 var nunjucks = require('express-nunjucks')
