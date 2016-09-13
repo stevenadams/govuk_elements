@@ -26,6 +26,7 @@ gulp.task('govuk', function() {
 
 })
 
+
 // Encode HTML snippets
 
 gulp.task('encode', function() {
@@ -34,3 +35,16 @@ gulp.task('encode', function() {
     .pipe(gulp.dest('./_gulp-test/app/views/snippets/encoded/'))
 })
 
+
+// Delete the _gulp-test directory (change this to /public/stylesheets once working)
+
+gulp.task('clean', function(callback) {
+  return del(['_gulp-test'])
+});
+
+
+// Also delete the encoded snippets folder
+
+gulp.task('clean_snippets', function(callback) {
+  return del(['_gulp-test/app/views/snippets/encoded'])
+});
