@@ -11,6 +11,7 @@ public/stylesheets/
 
 # Ignore test files
 dist/*.html
+_gulp-test/*
 
 # Wraith
 shots
