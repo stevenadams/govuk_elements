@@ -36,6 +36,18 @@ gulp.task('encode', function() {
 })
 
 
+// Compile scss from public/sass to public/stylesheets
+
+gulp.task('styles', function () {
+  return gulp.src('./public/sass/**/*.scss')
+    .pipe(sass({outputStyle: 'expanded', includePaths: [
+      '_gulp-test/govuk_modules/govuk_template/assets/stylesheets',
+      '_gulp-test/govuk_modules/govuk_frontend_toolkit/stylesheets'
+      ]}).on('error', sass.logError))
+    .pipe(gulp.dest('_gulp-test/public/stylesheets'));
+});
+
+
 // Delete the _gulp-test directory (change this to /public/stylesheets once working)
 
 gulp.task('clean', function(callback) {
