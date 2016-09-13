@@ -4,6 +4,7 @@ var del = require('del')
 var sass = require('gulp-sass')
 var scsslint = require('gulp-scss-lint')
 var entities = require('gulp-html-entities')
+var standard = require('gulp-standard')
 
 // Create a govuk task to copy govuk dependencies to a govuk_modules folder
 
@@ -49,6 +50,17 @@ gulp.task('styles-lint', function () {
     .pipe(scsslint({
       'bundleExec': true,
       'config': '.scss-lint.yml'
+    }))
+})
+
+gulp.task('standard', function () {
+  return gulp.src([
+    './public/javascripts/*.js'
+  ])
+    .pipe(standard())
+    .pipe(standard.reporter('default', {
+      breakOnError: true,
+      quiet: true
     }))
 })
 
